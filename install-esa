@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# This is the Kaddio ESA install script!
+#
+#
+# MAC AND LINUX:
+#   Just open up your terminal and type:
+#
+#     curl https://kaddio.com/install-esa | sh
+#
+#   Kaddio currently supports Linux: x86 systems
+
+# Place everything in a function
+
+clone(){
+    echo "Cloning repo"
+    git clone https://github.com/kaddio/kaddio.git
+}
+
+storage(){
+    echo "Creating kaddio-storage folder"
+    mkdir kaddio-storage
+}
+
+env(){
+    echo "Creating env.sh defaults"
+    touch env.sh
+
+    echo "#!/bin/sh" >> env.sh
+    echo "export KADDIO_STANDALONE=TRUE" >> env.sh
+}
+
+install(){
+    echo "Installing Kaddio ESA."
+    echo "This will prompt for your username and token"
+
+    # clone
+    storage
+    env
+
+    exit 0
+}
+
+# Run install function
+install
