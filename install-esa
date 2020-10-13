@@ -1,40 +1,39 @@
 #!/bin/sh
 
-# This is the Kaddio ESA install script!
-#
-#
-# MAC AND LINUX:
-#   Just open up your terminal and type:
-#
-#     curl https://kaddio.com/install-esa | sh
-#
-#   Kaddio currently supports Linux: x86 systems
-
-# Place everything in a function
-
-clone(){
-    if [ ! -d "kaddio" ]; then
-        echo "Cloning repo"
-        git clone https://github.com/kaddio/kaddio.git
-        cd kaddio
-        git checkout malmoe-install-v2
-        cd ..
+storage(){
+    if [ ! -d "kaddio-storage" ] ; then
+        echo "Creating kaddio-storage folder"
+        sudo mkdir kaddio-storage
     else
-        echo "Already cloned?"
-        exit 1
+        echo "Found kaddio-storage folder, won't touch"
     fi
 }
 
-install(){
-    ./kaddio/scripts/install.sh
+env(){
+    if [ ! -d "env.sh" ] ; then
+        echo "Creating env.sh defaults"
+        cp kaddio/scripts/env.sh-defaults .
+        mv env.sh-defaults env.sh
+        sudo chmod 755 env.sh
+    else
+        echo "Found env.sh, won't copy"
+    fi
 }
 
-bootstrap(){
-    echo "Installing Kaddio ESA."
-    clone
-    install
-    exit 0
+meteor(){
+    curl https://install.meteor.com/ | sh
 }
 
-# Run install function
-bootstrap
+npm(){
+    meteor npm install --no-package-lock
+}
+
+storage
+env
+meteor
+npm
+
+echo "Success :) Go ahead and configure env.sh, then start Kaddio"
+exit 0
+
+# git config credential.helper store
