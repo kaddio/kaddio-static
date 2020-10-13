@@ -16,7 +16,9 @@ clone(){
     if [ ! -d "kaddio" ]; then
         echo "Cloning repo"
         git clone https://github.com/kaddio/kaddio.git
+        cd kaddio
         git checkout malmoe-install-v2
+        cd ..
     else
         echo "Already cloned?"
         exit 1
