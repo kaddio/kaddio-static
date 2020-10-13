@@ -28,6 +28,16 @@ env(){
 
     echo "#!/bin/sh" >> env.sh
     echo "export KADDIO_STANDALONE=TRUE" >> env.sh
+    echo "export LOAD_LANG=TRUE" >> env.sh
+    echo "export USER_FILE_PATH=$HOME/kaddio-storage" >> env.sh
+
+    echo "#export SSL_KEY_PATH=" >> env.sh
+    echo "#export SSL_CERT_PATH=" >> env.sh
+    echo "#export SSL_PORT=5000" >> env.sh
+    echo "#export SSL_SECURE_PROTOCOL=TRUE" >> env.sh
+    echo "#export EMAIL_FROM=" >> env.sh
+    echo "#export SSL_SECURE_PROTOCOL=TRUE" >> env.sh
+    echo "#export SSL_SECURE_PROTOCOL=TRUE" >> env.sh
 }
 
 install(){
