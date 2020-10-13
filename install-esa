@@ -13,9 +13,14 @@
 # Place everything in a function
 
 clone(){
-    echo "Cloning repo"
-    git clone https://github.com/kaddio/kaddio.git
-    git checkout malmoe-install-v2
+    if [ ! -d "kaddio" ]; then
+        echo "Cloning repo"
+        git clone https://github.com/kaddio/kaddio.git
+        git checkout malmoe-install-v2
+    else
+        echo "Already cloned?"
+        exit 1
+    fi
 }
 
 install(){
