@@ -19,7 +19,7 @@ clone(){
 }
 
 install(){
-    source kaddio/scripts/install.sh
+    sh kaddio/scripts/install.sh
 }
 
 bootstrap(){
