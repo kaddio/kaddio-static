@@ -10,6 +10,8 @@
 #
 #   Kaddio currently supports Linux: x86 systems
 
+set -eu
+
 # Place everything in a function
 
 clone(){
