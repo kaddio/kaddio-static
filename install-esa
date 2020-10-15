@@ -10,10 +10,6 @@
 #
 #   Kaddio currently supports Linux: x86 systems
 
-set -eu
-
-# Place everything in a function
-
 clone(){
     if [ ! -d "kaddio" ]; then
         echo "Welcome to the Kaddio Enterprise Stand alone installer"
@@ -32,9 +28,14 @@ install(){
 }
 
 bootstrap(){
+    set -e
+    set -u
+
     echo "Installing Kaddio ESA."
+
     clone
     install
+
     exit 0
 }
 
