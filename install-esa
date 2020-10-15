@@ -25,7 +25,7 @@ clone(){
 
 install(){
     cd $HOME
-    source kaddio/scripts/install.sh
+    ./kaddio/scripts/install.sh
 }
 
 bootstrap(){
