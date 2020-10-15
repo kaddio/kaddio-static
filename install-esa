@@ -24,13 +24,10 @@ clone(){
 }
 
 install(){
-    source kaddio/scripts/install.sh
+    source $HOME/kaddio/scripts/install.sh
 }
 
 bootstrap(){
-    set -e
-    set -u
-
     echo "Installing Kaddio ESA."
 
     clone
