@@ -10,13 +10,21 @@
 #
 #   Kaddio currently supports Linux: x86 systems
 
+UNAME=$(uname)
+if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
+    echo "Sorry, this OS is not supported yet."
+    exit 1
+fi
+
+# PREFIX="/usr/local"
+
 set -eu
 
 # Place everything in a function
 
 clone(){
     if [ ! -d "kaddio" ]; then
-        echo "Cloning repo"
+        echo "Welcome to the Kaddio Enterprise Stand alone installer"
         git clone https://github.com/kaddio/kaddio.git
         cd kaddio
         git checkout malmoe-install-v2
