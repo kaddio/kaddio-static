@@ -16,7 +16,7 @@ clone(){
         git clone https://github.com/kaddio/kaddio.git
         cd kaddio
         git checkout malmoe-install-v2
-        cd ..
+        cd $HOME
     else
         echo "Already cloned?"
         exit 1
@@ -24,7 +24,8 @@ clone(){
 }
 
 install(){
-    source $HOME/kaddio/scripts/install.sh
+    cd $HOME
+    source kaddio/scripts/install.sh
 }
 
 bootstrap(){
