@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This is the Kaddio ESA install script!
 #
@@ -24,7 +24,7 @@ clone(){
 }
 
 install(){
-    ./kaddio/scripts/install.sh
+    source kaddio/scripts/install.sh
 }
 
 bootstrap(){
