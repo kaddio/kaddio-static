@@ -10,14 +10,6 @@
 #
 #   Kaddio currently supports Linux: x86 systems
 
-UNAME=$(uname)
-if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
-    echo "Sorry, this OS is not supported yet."
-    exit 1
-fi
-
-# PREFIX="/usr/local"
-
 set -eu
 
 # Place everything in a function
